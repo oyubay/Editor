@@ -1,10 +1,6 @@
 package sample;
 
-import javafx.scene.Parent;
-
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.List;
 
 public class TextFile {
     private final Path file;

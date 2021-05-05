@@ -27,7 +27,6 @@ public class Controller {
         File file = fileChooser.showSaveDialog(null);
         if (file!=null){
             currentTextFile = new TextFile(Path.of(String.valueOf(file)), areaText.getHtmlText());
-//                    Arrays.asList(areaText.getHtmlText().split("\n")));
             model.save(currentTextFile);
         }
     }
@@ -37,7 +36,6 @@ public class Controller {
             onSaveAs();
         }else {
             TextFile textFile = new TextFile(currentTextFile.getFile(), areaText.getHtmlText());
-//                    Arrays.asList(areaText.getHtmlText().split("\n")));
             model.save(textFile);
         }
     }
@@ -50,8 +48,7 @@ public class Controller {
             Result<TextFile> res = model.load(file.toPath());
             if (res.isOk() && res.hasData()){
                 currentTextFile = res.getData();
-                areaText.setHtmlText((currentTextFile.getContent().toString()));
-//                currentTextFile.getContent().forEach(line -> areaText.setHtmlText(line+"\n"));
+                areaText.setHtmlText((currentTextFile.getContent()));
             }else{
                 System.out.println("Failed");
             }
